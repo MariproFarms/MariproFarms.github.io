@@ -4,22 +4,23 @@
 set -e
 
 # build
+
 npm run build
 
 # navigate into the build output directory
 cd dist
 
 # if you are deploying to a custom domain
-echo 'www.mariprofarms.com' > CNAME
+# echo 'www.mariprofarms.com' > CNAME
 
 git init
 git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io
-# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
+# git push -f git@github.com:<MariproFarms>/<MariproFarms>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/ldavidson45/maripro.git master
+git push -f https://github.com/MariproFarms/maripro.git master
 
 cd -
