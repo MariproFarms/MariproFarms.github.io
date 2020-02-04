@@ -13,11 +13,15 @@ export default {
 		<nav class="nav-bar">
 			<Logo class="logo" width="250" />
 		</nav>
-		<router-view />
+		<main>
+			<router-view />
+		</main>
 	</div>
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Cambay&display=swap");
+
 body {
 	margin: 0;
 }
@@ -30,12 +34,15 @@ body {
 	color: #2c3e50;
 }
 
-.nav-bar {
+nav {
 	position: absolute;
-	top: 0;
 }
 
 .logo {
 	margin-left: 20px;
+}
+
+main {
+	height: 100vh;
 }
 </style>
