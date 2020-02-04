@@ -1,12 +1,6 @@
 <script>
-import image from "@/assets/underwater.jpg"
 export default {
-	name: "HomePage",
-	data() {
-		return {
-			image
-		}
-	}
+	name: "HomePage"
 }
 </script>
 
