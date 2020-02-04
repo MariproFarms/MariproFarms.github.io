@@ -1,17 +1,12 @@
 <script>
-import Logo from "@/components/Logo.vue"
-
 export default {
-	name: "app",
-	components: {
-		Logo
-	}
+	name: "app"
 }
 </script>
 
 <template>
 	<div id="app">
-		<Logo alt="Maripro logo" width="500" />
+		<router-view />
 	</div>
 </template>
 
