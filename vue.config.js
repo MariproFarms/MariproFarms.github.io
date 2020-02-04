@@ -1,3 +1,1 @@
-module.exports = {
-	publicPath: "/maripro/"
-}
+module.exports = {}
