@@ -1,11 +1,24 @@
 <script>
+import image from "@/assets/underwater.jpg"
 export default {
-	name: "HomePage"
+	name: "HomePage",
+	data() {
+		return {
+			image
+		}
+	}
 }
 </script>
 
 <template>
-	<div>Home Page</div>
+	<div class="above-fold"></div>
 </template>
 
-<style></style>
+<style>
+.above-fold {
+	background-image: url("~@/assets/underwater.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+</style>
