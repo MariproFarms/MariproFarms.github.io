@@ -11,7 +11,7 @@ export default {
 <template>
 	<div id="app">
 		<nav class="nav-bar">
-			<Logo width="150" />
+			<Logo class="logo" width="250" />
 		</nav>
 		<router-view />
 	</div>
@@ -33,5 +33,9 @@ body {
 .nav-bar {
 	position: absolute;
 	top: 0;
+}
+
+.logo {
+	margin-left: 20px;
 }
 </style>

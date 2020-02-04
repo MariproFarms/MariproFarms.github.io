@@ -16,7 +16,11 @@ export default {
 
 <style>
 .above-fold {
-	background-image: url("~@/assets/underwater.jpg");
+	background: linear-gradient(
+			rgba(4, 150, 241, 0.55),
+			rgba(4, 150, 241, 0.55)
+		),
+		url("~@/assets/fish.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100vh;
