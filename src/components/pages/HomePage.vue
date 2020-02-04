@@ -35,7 +35,7 @@ export default {
 
 .header-text {
 	color: rgba(225, 225, 225, 1);
-	font-family: "Cambay", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 3rem;
 	animation-name: appear;
 	animation-duration: 4s;
