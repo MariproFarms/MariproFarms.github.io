@@ -1,18 +1,16 @@
 <script>
-import Logo from "@/components/Logo"
+import NavBar from "@/components/NavBar"
 export default {
 	name: "app",
 	components: {
-		Logo
+		NavBar
 	}
 }
 </script>
 
 <template>
 	<div id="app">
-		<nav class="nav-bar">
-			<Logo class="logo" width="250" />
-		</nav>
+		<NavBar />
 		<main>
 			<router-view />
 		</main>
@@ -34,14 +32,6 @@ body {
 	color: #2c3e50;
 	animation-name: appear;
 	animation-duration: 2s;
-}
-
-nav {
-	position: absolute;
-}
-
-.logo {
-	margin-left: 20px;
 }
 
 main {
