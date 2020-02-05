@@ -16,6 +16,22 @@ const router = new Router({
 				title: "MariPro | Home"
 			},
 			component: HomePage
+		},
+		{
+			path: "/about",
+			name: "About",
+			meta: {
+				title: "MariPro | About"
+			}
+			// TODO: Add component for page placeholder
+		},
+		{
+			path: "/contact",
+			name: "Contact",
+			meta: {
+				title: "MariPro | Contact"
+			}
+			// TODO: Add component for page placeholder
 		}
 	]
 })
