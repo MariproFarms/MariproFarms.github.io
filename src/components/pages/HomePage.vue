@@ -6,13 +6,11 @@ export default {
 
 <template>
 	<div class="above-fold">
-		<transition name="fade">
-			<h1 class="header-text">Fresh. Sustainable. Local.</h1>
-		</transition>
+		<h1 class="header-text">Fresh. Sustainable. Local.</h1>
 	</div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .above-fold {
 	background: linear-gradient(
 			rgba(4, 150, 241, 0.55),
@@ -28,19 +26,8 @@ export default {
 }
 
 .header-text {
-	color: rgba(225, 225, 225, 1);
+	color: $white;
 	font-family: "Montserrat", sans-serif;
 	font-size: 3rem;
-	animation-name: appear;
-	animation-duration: 4s;
-}
-
-@keyframes appear {
-	0% {
-		color: rgba(225, 225, 225, 0);
-	}
-	100% {
-		color: rgba(225, 225, 225, 1);
-	}
 }
 </style>

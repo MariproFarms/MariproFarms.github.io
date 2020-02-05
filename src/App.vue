@@ -19,7 +19,8 @@ export default {
 	</div>
 </template>
 
-<style>
+<style lang="scss">
+@import "@/styles/reset.scss";
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 body {
 	margin: 0;
@@ -31,6 +32,8 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #2c3e50;
+	animation-name: appear;
+	animation-duration: 2s;
 }
 
 nav {
