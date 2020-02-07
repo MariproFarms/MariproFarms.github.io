@@ -16,6 +16,11 @@ export default {
 	beforeDestroy() {
 		document.removeEventListener("scroll", this.getNavStyle)
 	},
+	computed: {
+		scrollingClass() {
+			return this.scrolling ? "scrolling" : ""
+		}
+	},
 	methods: {
 		getNavStyle() {
 			this.scrolling = window.pageYOffset > 60
@@ -25,20 +30,23 @@ export default {
 </script>
 
 <template>
-	<nav :class="{ nav: true, 'nav--scrolling': scrolling }">
-		<ul class="nav__list">
+	<nav :class="`${scrollingClass} nav`">
+		<ul class=" nav__list">
 			<li>
 				<router-link to="/" class="nav__link">
-					<Logo class="nav__logo" :height="50" />
+					<Logo :class="`${scrollingClass} nav__logo`" :height="50" />
 				</router-link>
 			</li>
 			<li>
-				<router-link class="nav__link" to="/about">
+				<router-link :class="`${scrollingClass} nav__link`" to="/about">
 					About
 				</router-link>
 			</li>
 			<li>
-				<router-link class="nav__link" to="/contact">
+				<router-link
+					:class="`${scrollingClass} nav__link`"
+					to="/contact"
+				>
 					Contact
 				</router-link>
 			</li>
@@ -51,10 +59,22 @@ export default {
 	position: fixed;
 	width: 100vw;
 	padding: $spacer/3;
+
+	&.scrolling {
+		box-shadow: 1px 1px 13px 1px rgba(0, 0, 0, 0.2);
+		background: $chineseWhite96;
+	}
 	&__logo {
 		color: $chineseWhite88;
 	}
 
+	&__link {
+		font-size: 1.2rem;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $chineseWhite88;
+		letter-spacing: 2px;
+	}
 	ul {
 		display: flex;
 		justify-content: flex-end;
@@ -72,17 +92,10 @@ export default {
 				margin-right: auto;
 			}
 		}
-		a {
-			font-size: 1.2rem;
-			text-decoration: none;
-			text-transform: uppercase;
-			color: $chineseWhite88;
-			letter-spacing: 2px;
-		}
 	}
+}
 
-	&--scrolling {
-		background: black;
-	}
+.scrolling {
+	color: $ocean95;
 }
 </style>
