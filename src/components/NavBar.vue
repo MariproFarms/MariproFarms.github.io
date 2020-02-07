@@ -23,7 +23,7 @@ export default {
 	},
 	methods: {
 		getNavStyle() {
-			this.scrolling = window.pageYOffset > 60
+			this.scrolling = window.pageYOffset > 30
 		}
 	}
 }
@@ -31,22 +31,19 @@ export default {
 
 <template>
 	<nav :class="`${scrollingClass} nav`">
-		<ul class=" nav__list">
+		<ul :class="`${scrollingClass}`">
 			<li>
-				<router-link to="/" class="nav__link">
-					<Logo :class="`${scrollingClass} nav__logo`" :height="50" />
+				<router-link to="/">
+					<Logo :class="scrollingClass" height="100%" />
 				</router-link>
 			</li>
 			<li>
-				<router-link :class="`${scrollingClass} nav__link`" to="/about">
+				<router-link to="/about">
 					About
 				</router-link>
 			</li>
 			<li>
-				<router-link
-					:class="`${scrollingClass} nav__link`"
-					to="/contact"
-				>
+				<router-link to="/contact">
 					Contact
 				</router-link>
 			</li>
@@ -57,45 +54,61 @@ export default {
 <style lang="scss" scoped>
 .nav {
 	position: fixed;
-	width: 100vw;
-	padding: $spacer/3;
 
 	&.scrolling {
-		box-shadow: 1px 1px 13px 1px rgba(0, 0, 0, 0.2);
-		background: $chineseWhite96;
-	}
-	&__logo {
-		color: $chineseWhite88;
+		animation: scrollColor 500ms forwards linear;
+
+		a {
+			animation: scrollColor 1s forwards ease-in;
+		}
 	}
 
-	&__link {
-		font-size: 1.2rem;
-		text-decoration: none;
-		text-transform: uppercase;
-		color: $chineseWhite88;
-		letter-spacing: 2px;
-	}
 	ul {
 		display: flex;
 		justify-content: flex-end;
-		align-items: center;
-		height: 50px;
-		padding-right: $spacer;
+		width: 100vw;
+		position: relative;
+		height: 100px;
 
-		li {
-			margin: 0 $spacer * 1.5;
-			height: 100%;
-			line-height: 50px;
-
+		&.scrolling {
 			&:first-child {
-				margin-left: 5px;
-				margin-right: auto;
+				animation: scrollShrink 2s forwards;
 			}
+		}
+	}
+
+	li {
+		margin: $spacer;
+		line-height: 100%;
+
+		&:first-of-type {
+			margin: $spacer/2;
+			margin-right: auto;
+		}
+
+		a {
+			font-size: 1.3rem;
 		}
 	}
 }
 
-.scrolling {
-	color: $ocean95;
+@keyframes scrollShrink {
+	0% {
+		height: 100px;
+	}
+	100% {
+		height: 60px;
+	}
+}
+
+@keyframes scrollColor {
+	0% {
+		background: none;
+		color: $ocean95;
+	}
+	100% {
+		background: $chineseWhite96;
+		color: $ocean95;
+	}
 }
 </style>
