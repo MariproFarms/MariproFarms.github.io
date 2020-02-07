@@ -12,7 +12,7 @@ export default {
 	<div id="app">
 		<NavBar />
 		<main>
-			<router-view />
+			<router-view></router-view>
 		</main>
 	</div>
 </template>
@@ -29,8 +29,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	font-family: "Montserrat", sans-serif;
-	animation-name: appear;
-	animation-duration: 2s;
 }
 
 main {
