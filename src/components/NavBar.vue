@@ -1,19 +1,37 @@
 <script>
-import Logo from "@/components/Logo"
+import Logo from "../assets/logo.svg"
 export default {
 	name: "NavBar",
 	components: {
 		Logo
+	},
+	data() {
+		return {
+			scrolling: false
+		}
+	},
+	mounted() {
+		document.addEventListener("scroll", this.getNavStyle)
+	},
+	beforeDestroy() {
+		document.removeEventListener("scroll", this.getNavStyle)
+	},
+	methods: {
+		getNavStyle() {
+			this.scrolling = window.pageYOffset > 60
+		}
 	}
 }
 </script>
 
 <template>
-	<nav class="nav">
-		<router-link to="/"
-			><Logo class="nav__logo" width="190" height="120"
-		/></router-link>
+	<nav :class="{ nav: true, 'nav--scrolling': scrolling }">
 		<ul class="nav__list">
+			<li>
+				<router-link to="/" class="nav__link">
+					<Logo class="nav__logo" :height="50" />
+				</router-link>
+			</li>
 			<li>
 				<router-link class="nav__link" to="/about">
 					About
@@ -30,28 +48,41 @@ export default {
 
 <style lang="scss" scoped>
 .nav {
-	position: absolute;
+	position: fixed;
 	width: 100vw;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
+	padding: $spacer/3;
 	&__logo {
-		margin-left: 20px;
-	}
-
-	&__list {
-		display: flex;
-	}
-
-	&__link {
-		margin: 0 $spacer;
-		font-size: 1.5rem;
-		text-decoration: none;
-		text-transform: uppercase;
-		transform: translateY(50%);
 		color: $chineseWhite88;
-		letter-spacing: 2px;
+	}
+
+	ul {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		height: 50px;
+		padding-right: $spacer;
+
+		li {
+			margin: 0 $spacer * 1.5;
+			height: 100%;
+			line-height: 50px;
+
+			&:first-child {
+				margin-left: 5px;
+				margin-right: auto;
+			}
+		}
+		a {
+			font-size: 1.2rem;
+			text-decoration: none;
+			text-transform: uppercase;
+			color: $chineseWhite88;
+			letter-spacing: 2px;
+		}
+	}
+
+	&--scrolling {
+		background: black;
 	}
 }
 </style>
