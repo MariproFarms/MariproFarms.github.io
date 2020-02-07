@@ -10,7 +10,9 @@ export default {
 
 <template>
 	<nav class="nav">
-		<Logo class="nav__logo" width="190" height="120" />
+		<router-link to="/"
+			><Logo class="nav__logo" width="190" height="120"
+		/></router-link>
 		<ul class="nav__list">
 			<li>
 				<router-link class="nav__link" to="/about">

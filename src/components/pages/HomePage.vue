@@ -12,22 +12,44 @@ export default {
 
 <style lang="scss" scoped>
 .above-fold {
-	background: linear-gradient(
-			rgba(4, 150, 241, 0.55),
-			rgba(4, 150, 241, 0.55)
-		),
-		url("~@/assets/fish.jpg");
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: none;
 	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	animation: showBackground 700ms ease-in both;
 }
 
 .header-text {
 	color: $white;
 	font-family: "Montserrat", sans-serif;
 	font-size: 3rem;
+}
+
+@keyframes showBackground {
+	0% {
+		background-image: linear-gradient(
+				rgba(4, 150, 241, 0.55),
+				rgba(4, 150, 241, 0.55)
+			),
+			url("~@/assets/fishcopy.jpg");
+		filter: blur(10px);
+	}
+	50% {
+		background-image: linear-gradient(
+				rgba(4, 150, 241, 0.55),
+				rgba(4, 150, 241, 0.55)
+			),
+			url("~@/assets/fish.jpg"), url("~@/assets/fishcopy.jpg");
+		filter: blur(5px);
+	}
+	100% {
+		background-image: linear-gradient(
+				rgba(4, 150, 241, 0.55),
+				rgba(4, 150, 241, 0.55)
+			),
+			url("~@/assets/fish.jpg");
+	}
 }
 </style>
