@@ -9,14 +9,10 @@ export default {
 		<div class="above-fold">
 			<h1 class="header-text">Fresh. Sustainable. Local.</h1>
 		</div>
-		<div class="test" />
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.test {
-	height: 100vh;
-}
 .above-fold {
 	background-size: cover;
 	background-repeat: none;
