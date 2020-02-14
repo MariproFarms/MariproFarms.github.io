@@ -30,7 +30,7 @@ git commit -m 'deploy'
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 
 echo 'pushing...'
-git push
+git push -f git@github.com:MariproFarms/maripro.git master
 
 
 cd -
