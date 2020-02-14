@@ -31,10 +31,10 @@ export default {
 
 <template>
 	<nav :class="`${scrollingClass} nav`">
-		<ul :class="`${scrollingClass}`">
-			<li>
+		<ul>
+			<li :class="scrollingClass">
 				<router-link to="/">
-					<Logo :class="scrollingClass" height="100%" />
+					<Logo width="100%" height="100%" />
 				</router-link>
 			</li>
 			<li>
@@ -59,7 +59,7 @@ export default {
 		animation: scrollColor 500ms forwards linear;
 
 		a {
-			animation: scrollColor 1s forwards ease-in;
+			animation: scrollColor 500ms forwards ease-in;
 		}
 	}
 
@@ -68,12 +68,9 @@ export default {
 		justify-content: flex-end;
 		width: 100vw;
 		position: relative;
-		height: 100px;
 
-		&.scrolling {
-			&:first-child {
-				animation: scrollShrink 2s forwards;
-			}
+		.scrolling {
+			animation: scrollShrink 2s forwards;
 		}
 	}
 
@@ -94,20 +91,21 @@ export default {
 
 @keyframes scrollShrink {
 	0% {
-		height: 100px;
+		width: 250px;
 	}
 	100% {
-		height: 60px;
+		width: 120px;
 	}
 }
 
 @keyframes scrollColor {
 	0% {
-		background: none;
+		background: rgba(0, 0, 0, 0);
 		color: $ocean95;
 	}
+
 	100% {
-		background: $chineseWhite96;
+		background: white;
 		color: $ocean95;
 	}
 }
