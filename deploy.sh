@@ -21,6 +21,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:MariproFarms/MariproFarms.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/MariproFarms/maripro.git master
+git push -f https://github.com/MariproFarms/maripro master
 
 cd -
