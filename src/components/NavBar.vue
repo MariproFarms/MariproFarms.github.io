@@ -88,7 +88,6 @@ export default {
 
 	li {
 		margin: $spacer;
-		line-height: 100%;
 
 		&:first-of-type {
 			margin: $spacer/2;
