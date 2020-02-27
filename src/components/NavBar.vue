@@ -7,23 +7,34 @@ export default {
 	},
 	data() {
 		return {
-			scrolling: false
+			isScrolling: false,
+			isHomePage: true
+		}
+	},
+	watch: {
+		$route(to) {
+			this.isHomePage = to.name === "Home"
 		}
 	},
 	mounted() {
 		document.addEventListener("scroll", this.getNavStyle)
+		this.getNavStyle()
 	},
 	beforeDestroy() {
 		document.removeEventListener("scroll", this.getNavStyle)
 	},
 	computed: {
+		isLightTheme() {
+			return this.isScrolling || !this.isHomePage
+		},
 		scrollingClass() {
-			return this.scrolling ? "scrolling" : ""
+			return this.isLightTheme ? "light-theme" : ""
 		}
 	},
 	methods: {
 		getNavStyle() {
-			this.scrolling = window.pageYOffset > 30
+			this.isScrolling = window.pageYOffset > 30
+			this.isHomePage = this.$route.name === "Home"
 		}
 	}
 }
@@ -56,7 +67,7 @@ export default {
 	position: fixed;
 	z-index: 10;
 
-	&.scrolling {
+	&.light-theme {
 		animation: scrollColor 500ms forwards linear;
 
 		a {
@@ -70,7 +81,7 @@ export default {
 		width: 100vw;
 		position: relative;
 
-		.scrolling {
+		.light-theme {
 			animation: scrollShrink 2s forwards;
 		}
 	}

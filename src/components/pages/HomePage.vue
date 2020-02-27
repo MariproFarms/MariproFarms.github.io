@@ -19,7 +19,6 @@ export default {
 		:placeholder="backgroundPlaceholder"
 		:blur="20"
 		custom-class="background-img"
-		@onLoad="load"
 	>
 		<div class="above-fold" slot="content">
 			<h1 class="header-text">Fresh. Sustainable. Local.</h1>
@@ -34,6 +33,13 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background: rgb(45, 111, 193);
+	background: linear-gradient(
+		4deg,
+		rgba(45, 111, 193, 0.45) 0%,
+		rgba(45, 111, 193, 0.45) 55%,
+		rgba(45, 111, 193, 0.45) 100%
+	);
 }
 
 .header-text {
