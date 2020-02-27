@@ -54,6 +54,7 @@ export default {
 <style lang="scss" scoped>
 .nav {
 	position: fixed;
+	z-index: 10;
 
 	&.scrolling {
 		animation: scrollColor 500ms forwards linear;
