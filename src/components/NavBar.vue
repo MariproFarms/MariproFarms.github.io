@@ -42,12 +42,10 @@ export default {
 
 <template>
 	<nav :class="`${scrollingClass} nav`">
-		<ul>
-			<li :class="scrollingClass">
-				<router-link to="/">
-					<Logo width="100%" height="100%" />
-				</router-link>
-			</li>
+		<router-link to="/">
+			<Logo width="150px" />
+		</router-link>
+		<ul class="nav__list">
 			<li>
 				<router-link to="/about">
 					About
@@ -65,59 +63,22 @@ export default {
 <style lang="scss" scoped>
 .nav {
 	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	width: 100vw;
 	z-index: 10;
+	padding: $spacer * 1.5;
 
-	&.light-theme {
-		animation: scrollColor 500ms forwards linear;
-
-		a {
-			animation: scrollColor 500ms forwards ease-in;
-		}
-	}
-
-	ul {
+	&__list {
 		display: flex;
-		justify-content: flex-end;
-		width: 100vw;
 		position: relative;
 
-		.light-theme {
-			animation: scrollShrink 2s forwards;
+		li {
+			text-transform: uppercase;
+			display: flex;
+			align-items: center;
+			margin-left: $spacer * 2;
 		}
-	}
-
-	li {
-		margin: $spacer;
-
-		&:first-of-type {
-			margin: $spacer/2;
-			margin-right: auto;
-		}
-
-		a {
-			font-size: 1.3rem;
-		}
-	}
-}
-
-@keyframes scrollShrink {
-	0% {
-		width: 250px;
-	}
-	100% {
-		width: 120px;
-	}
-}
-
-@keyframes scrollColor {
-	0% {
-		background: rgba(0, 0, 0, 0);
-		color: $ocean95;
-	}
-
-	100% {
-		background: white;
-		color: $ocean95;
 	}
 }
 </style>
