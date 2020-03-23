@@ -22,24 +22,34 @@ export default {
     newScrollScene
   },
   mounted() {
-    this.newScrollScene("scrollPanel");
+    this.$refs.scrollPanel.forEach(panel => {
+      this.newScrollScene(panel);
+    });
+    this.newScrollScene(this.$refs.topPanel);
   }
 };
 </script>
 
 <template>
   <div>
-    <progressive-background
-      :src="backgroundImg"
-      :placeholder="backgroundPlaceholder"
-      :blur="20"
-      custom-class="background-img scrollPanel"
+    <div ref="topPanel">
+      <progressive-background
+        :src="backgroundImg"
+        :placeholder="backgroundPlaceholder"
+        :blur="20"
+        custom-class="background-img"
+      >
+        <div class="above-fold" slot="content">
+          <h1 class="header-text">Fresh. Sustainable. Local.</h1>
+        </div>
+      </progressive-background>
+    </div>
+    <div
+      ref="scrollPanel"
+      v-for="(section, index) in contentSections"
+      :key="index"
+      class="content-panel"
     >
-      <div class="above-fold" slot="content">
-        <h1 class="header-text">Fresh. Sustainable. Local.</h1>
-      </div>
-    </progressive-background>
-    <div v-for="(section, index) in contentSections" :key="index">
       <ContentSection :title="section.title" :text="section.text" />
     </div>
   </div>
@@ -63,5 +73,9 @@ export default {
   color: $white;
   font-family: "Montserrat", sans-serif;
   font-size: 3rem;
+}
+
+.content-panel {
+  margin-bottom: 500px;
 }
 </style>

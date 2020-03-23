@@ -28,8 +28,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 100vw;
-  justify-content: space-between;
-  height: 200vh;
+  align-content: center;
+  min-height: 100vh;
   background: $ocean95;
 }
 
