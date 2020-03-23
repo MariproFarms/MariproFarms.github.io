@@ -1,35 +1,57 @@
 <script>
-import OurPhilosophy from "@/components/home/OurPhilosophy.vue";
+import ContentSection from "@/components/home/ContentSection.vue";
 const backgroundPlaceholder = require("@/assets/fishcopy.jpg");
+import { newScrollScene } from "@/helpers/scrollAnimations.js";
+
 const backgroundImg = require("@/assets/fish.jpg");
+const contentSections = require("@/components/home/sectionText.json");
 
 export default {
   name: "HomePage",
   components: {
-    OurPhilosophy
+    ContentSection
   },
   data() {
     return {
       backgroundPlaceholder,
-      backgroundImg
+      backgroundImg,
+      contentSections
     };
+  },
+  methods: {
+    newScrollScene
+  },
+  mounted() {
+    this.$refs.scrollPanel.forEach(panel => {
+      this.newScrollScene(panel);
+    });
+    this.newScrollScene(this.$refs.topPanel);
   }
 };
 </script>
 
 <template>
   <div>
-    <progressive-background
-      :src="backgroundImg"
-      :placeholder="backgroundPlaceholder"
-      :blur="20"
-      custom-class="background-img"
+    <div ref="topPanel">
+      <progressive-background
+        :src="backgroundImg"
+        :placeholder="backgroundPlaceholder"
+        :blur="20"
+        custom-class="background-img"
+      >
+        <div class="above-fold" slot="content">
+          <h1 class="header-text">Fresh. Sustainable. Local.</h1>
+        </div>
+      </progressive-background>
+    </div>
+    <div
+      ref="scrollPanel"
+      v-for="(section, index) in contentSections"
+      :key="index"
+      class="content-panel"
     >
-      <div class="above-fold" slot="content">
-        <h1 class="header-text">Fresh. Sustainable. Local.</h1>
-      </div>
-    </progressive-background>
-    <OurPhilosophy />
+      <ContentSection :title="section.title" :text="section.text" />
+    </div>
   </div>
 </template>
 
@@ -51,5 +73,9 @@ export default {
   color: $white;
   font-family: "Montserrat", sans-serif;
   font-size: 3rem;
+}
+
+.content-panel {
+  margin-bottom: 500px;
 }
 </style>
