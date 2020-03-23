@@ -1,18 +1,28 @@
 <script>
-import OurPhilosophy from "@/components/home/OurPhilosophy.vue";
+import ContentSection from "@/components/home/ContentSection.vue";
 const backgroundPlaceholder = require("@/assets/fishcopy.jpg");
+import { newScrollScene } from "@/helpers/scrollAnimations.js";
+
 const backgroundImg = require("@/assets/fish.jpg");
+const contentSections = require("@/components/home/sectionText.json");
 
 export default {
   name: "HomePage",
   components: {
-    OurPhilosophy
+    ContentSection
   },
   data() {
     return {
       backgroundPlaceholder,
-      backgroundImg
+      backgroundImg,
+      contentSections
     };
+  },
+  methods: {
+    newScrollScene
+  },
+  mounted() {
+    this.newScrollScene("scrollPanel");
   }
 };
 </script>
@@ -23,13 +33,15 @@ export default {
       :src="backgroundImg"
       :placeholder="backgroundPlaceholder"
       :blur="20"
-      custom-class="background-img"
+      custom-class="background-img scrollPanel"
     >
       <div class="above-fold" slot="content">
         <h1 class="header-text">Fresh. Sustainable. Local.</h1>
       </div>
     </progressive-background>
-    <OurPhilosophy />
+    <div v-for="(section, index) in contentSections" :key="index">
+      <ContentSection :title="section.title" :text="section.text" />
+    </div>
   </div>
 </template>
 
