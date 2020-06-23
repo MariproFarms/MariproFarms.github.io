@@ -43,7 +43,7 @@ export default {
 
 <template>
   <transition name="fade">
-    <div v-if="!isLoading">
+    <div v-show="!isLoading">
       <div ref="topPanel">
         <div class="above-fold">
           <h1 class="header-text">Fresh. Sustainable. Local.</h1>
