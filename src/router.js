@@ -2,6 +2,7 @@ import Vue from "vue"
 import Router from "vue-router"
 
 import HomePage from "@/components/pages/HomePage.vue"
+import AboutPage from "@/components/pages/AboutPage.vue"
 
 Vue.use(Router)
 
@@ -22,7 +23,8 @@ const router = new Router({
 			name: "About",
 			meta: {
 				title: "MariPro | About"
-			}
+			},
+			component: AboutPage
 			// TODO: Add component for page placeholder
 		},
 		{
