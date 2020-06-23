@@ -30,7 +30,7 @@ export default {
   width: 100vw;
   align-content: center;
   min-height: 100vh;
-  background: $ocean95;
+  background: $ocean20;
 }
 
 .content {
@@ -38,6 +38,7 @@ export default {
   max-width: 900px;
   text-align: left;
   margin: $spacer * 2 auto;
+  padding: 0 $spacer;
   line-height: 3rem;
   color: #fff;
 }
