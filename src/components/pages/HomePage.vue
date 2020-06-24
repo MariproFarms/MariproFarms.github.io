@@ -1,5 +1,6 @@
 <script>
 import ContentSection from "@/components/home/ContentSection.vue";
+import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import { newScrollScene } from "@/helpers/scrollAnimations.js";
 
 const contentSections = require("@/components/home/sectionText.json");
@@ -7,7 +8,8 @@ const contentSections = require("@/components/home/sectionText.json");
 export default {
   name: "HomePage",
   components: {
-    ContentSection
+    ContentSection,
+    LoadingSpinner
   },
   data() {
     return {
@@ -43,25 +45,29 @@ export default {
 
 <template>
   <transition name="fade">
-    <div v-show="!isLoading">
-      <div ref="topPanel">
-        <div class="above-fold">
-          <h1 class="header-text">Fresh. Sustainable. Local.</h1>
+    <div>
+      <div v-show="!isLoading">
+        <div ref="topPanel">
+          <div class="above-fold">
+            <h1 class="header-text">Fresh. Sustainable. Local.</h1>
+          </div>
+        </div>
+        <div
+          ref="scrollPanel"
+          v-for="(section, index) in contentSections"
+          :key="index"
+          class="content-panel"
+        >
+          <ContentSection :title="section.title" :text="section.text" />
         </div>
       </div>
-      <div
-        ref="scrollPanel"
-        v-for="(section, index) in contentSections"
-        :key="index"
-        class="content-panel"
-      >
-        <ContentSection :title="section.title" :text="section.text" />
-      </div>
+      <LoadingSpinner v-show="isLoading" />
     </div>
   </transition>
 </template>
 
 <style lang="scss" scoped>
+@include fade;
 .above-fold {
   height: 100vh;
   width: 100vw;
@@ -83,7 +89,7 @@ export default {
 }
 
 .header-text {
-  color: $white;
+  color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: 3rem;
   position: relative;
