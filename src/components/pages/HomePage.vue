@@ -1,7 +1,7 @@
 <script>
 import ContentSection from "@/components/home/ContentSection.vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
-import { newScrollScene } from "@/helpers/scrollAnimations.js";
+import { newScrollScene, toggleClass } from "@/helpers/scrollAnimations.js";
 
 const contentSections = require("@/components/home/sectionText.json");
 
@@ -14,7 +14,8 @@ export default {
   data() {
     return {
       contentSections,
-      isLoading: true
+      isLoading: true,
+      toggleClassAnimation: {}
     };
   },
   methods: {
@@ -30,7 +31,7 @@ export default {
     },
     async showPage() {
       await this.toggleLoading();
-      this.addScrollScenes();
+      // this.addScrollScenes();
     }
   },
   async mounted() {
@@ -39,6 +40,12 @@ export default {
       "https://images.unsplash.com/photo-1577979538850-f26500ce779f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80";
 
     newImage.onload = this.showPage;
+
+    this.toggleClassAnimation = toggleClass("#navBar", "#contentBox0");
+  },
+
+  beforeDestroy() {
+    this.toggleClassAnimation.removeClassToggle(true);
   }
 };
 </script>
@@ -54,6 +61,7 @@ export default {
         </div>
         <div
           ref="scrollPanel"
+          :id="`contentBox` + index"
           v-for="(section, index) in contentSections"
           :key="index"
           class="content-panel"
@@ -107,9 +115,9 @@ export default {
   }
 }
 
-.content-panel {
-  margin-bottom: 500px;
-}
+// .content-panel {
+//   margin-bottom: 500px;
+// }
 
 .fade-enter-active,
 .fade-leave-active {

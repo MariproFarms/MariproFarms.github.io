@@ -1,7 +1,7 @@
+// import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"
 import ScrollMagic from "scrollmagic"
 
 // init controller
-
 // create a scene
 export function newScrollScene(animateElement) {
 	// wait for document ready
@@ -19,4 +19,17 @@ export function newScrollScene(animateElement) {
 	})
 		.setPin(animateElement, { pushFollowers: false })
 		.addTo(controller)
+}
+
+export function toggleClass(animateElement, triggerElement) {
+	var controller = new ScrollMagic.Controller()
+
+	const scene = new ScrollMagic.Scene({
+		triggerElement: triggerElement,
+		triggerHook: 0
+	})
+		.setClassToggle(animateElement, "with-background")
+		.addTo(controller)
+
+	return scene
 }

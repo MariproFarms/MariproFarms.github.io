@@ -1,15 +1,24 @@
 <script>
 import Logo from "../assets/logo.svg";
+// import { toggleClass } from "@/helpers/scrollAnimations.js";
+
 export default {
   name: "NavBar",
   components: {
     Logo
+  },
+  computed: {
+    backgroundState() {
+      if (this.$route.name !== "Home") {
+        return "with-background";
+      } else return "";
+    }
   }
 };
 </script>
 
 <template>
-  <nav class="nav">
+  <nav :class="`nav ${backgroundState}`" id="navBar">
     <router-link to="/">
       <Logo width="150px" />
     </router-link>
@@ -44,5 +53,9 @@ export default {
       margin-left: $spacer * 2;
     }
   }
+}
+
+.with-background {
+  background: $ocean20;
 }
 </style>

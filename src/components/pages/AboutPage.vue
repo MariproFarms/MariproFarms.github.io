@@ -1,35 +1,38 @@
 <script>
-import { newScrollScene } from "@/helpers/scrollAnimations.js";
+import PersonBio from "@/components/PersonBio";
 
-const contentSections = require("@/components/home/sectionText.json");
+// const contentSections = require("@/components/home/sectionText.json");
 
 export default {
   name: "AboutPage",
-
-  data() {
-    return {
-      contentSections
-    };
-  },
-  methods: {
-    newScrollScene
+  components: {
+    PersonBio
   }
 };
 </script>
 
 <template>
   <div class="page-wrapper">
-    <div ref="topPanel">
-      <div>
-        <div class="above-fold"></div>
-      </div>
+    <div class="page-section">
+      <PersonBio />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .page-wrapper {
-  background: $ocean20;
   min-height: 100vh;
+  padding: $spacer * 3;
+  padding-top: 125px;
+
+  @media (max-width: 770px) {
+    padding: $spacer * 2;
+    padding-top: 115px;
+  }
+}
+
+.page-section {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>
