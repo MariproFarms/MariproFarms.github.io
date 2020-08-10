@@ -15,4 +15,9 @@ ul {
 a {
 	text-decoration: none;
 	color: #fff;
+	transition: 0.5s;
+
+	&:hover {
+		color: #8fffdd;
+	}
 }

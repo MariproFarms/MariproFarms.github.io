@@ -23,6 +23,7 @@ export default {
 body {
   margin: 0;
   background: $ocean20;
+  color: #ffffff;
 }
 
 #app {
