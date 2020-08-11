@@ -36,7 +36,7 @@ export default {
   async mounted() {
     const newImage = new Image();
     newImage.src =
-      "https://images.unsplash.com/photo-1577979538850-f26500ce779f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80";
+      "https://images.unsplash.com/photo-1506657333927-1e85394ce369?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80";
 
     newImage.onload = this.toggleLoading();
 

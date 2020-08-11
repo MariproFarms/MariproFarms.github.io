@@ -31,10 +31,12 @@ export default {
 <template>
   <div>
     <div class="bio-section" v-show="!isLoading">
-      <img
-        src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/48422949_10212818337833313_1526331892670922752_n.jpg?_nc_cat=111&_nc_sid=8bfeb9&_nc_ohc=b-mrEQnakMgAX9iR49K&_nc_ht=scontent-iad3-1.xx&oh=a45bf70d605940ac6950ba2c60628153&oe=5F562AF8"
-        alt="Karen Jensen"
-      />
+      <div class="bio-section__img">
+        <img
+          src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/48422949_10212818337833313_1526331892670922752_n.jpg?_nc_cat=111&_nc_sid=8bfeb9&_nc_ohc=b-mrEQnakMgAX9iR49K&_nc_ht=scontent-iad3-1.xx&oh=a45bf70d605940ac6950ba2c60628153&oe=5F562AF8"
+          alt="Karen Jensen"
+        />
+      </div>
       <div class="bio-section__details">
         <h4>Karen Jensen</h4>
         <p class="bio-section__title">Co-founder, CEO, and Chief Scientist</p>
@@ -55,7 +57,9 @@ export default {
     </div>
 
     <div class="bio-section" v-show="!isLoading">
-      <img src="../assets/Matthew2.jpg" alt="Matthew Bach" />
+      <div class="bio-section__img">
+        <img src="../assets/Matthew2.jpg" alt="Matthew Bach" />
+      </div>
 
       <div class="bio-section__details">
         <h4>Matthew Bach</h4>
@@ -85,13 +89,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-img {
-  max-width: 40%;
-  max-height: 100%;
-  height: inherit;
-  filter: grayscale(80%);
-}
-
 .bio-section {
   display: flex;
   margin-bottom: $spacer * 3;
@@ -121,6 +118,16 @@ img {
     color: #3ca38b;
   }
 
+  &__img {
+    width: 40%;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      filter: grayscale(80%);
+    }
+  }
   @media (max-width: 770px) {
     flex-direction: column;
 

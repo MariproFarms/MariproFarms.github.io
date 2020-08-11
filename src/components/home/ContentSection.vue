@@ -94,11 +94,12 @@ export default {
   flex-wrap: wrap;
 
   .image-wrapper {
-    max-width: 250px;
-    max-height: 250px;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
     border-radius: 50%;
     margin: $spacer 0;
+    position: relative;
     filter: grayscale(40%);
   }
   img {
