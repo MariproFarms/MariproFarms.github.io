@@ -18,7 +18,13 @@ git init
 
 echo 'adding...'
 
-git add -A
+cd ..
+
+pwd
+
+git add --all
+
+git status
 
 echo 'committing...'
 
