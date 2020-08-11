@@ -31,7 +31,6 @@ export default {
     },
     async showPage() {
       await this.toggleLoading();
-      // this.addScrollScenes();
     }
   },
   async mounted() {
@@ -39,7 +38,7 @@ export default {
     newImage.src =
       "https://images.unsplash.com/photo-1577979538850-f26500ce779f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80";
 
-    newImage.onload = this.showPage;
+    newImage.onload = this.toggleLoading();
 
     this.toggleClassAnimation = toggleClass("#navBar", "#contentBox0");
   },
@@ -66,7 +65,13 @@ export default {
           :key="index"
           class="content-panel"
         >
-          <ContentSection :title="section.title" :text="section.text" />
+          <ContentSection
+            :title="section.title"
+            :text="section.text"
+            :images="section.images"
+            :backgroundImg="section.backgroundImg"
+            :content="section"
+          />
         </div>
       </div>
       <LoadingSpinner v-show="isLoading" />
@@ -85,10 +90,12 @@ export default {
   padding: $spacer;
   background: linear-gradient(
       0deg,
-      rgba(44, 91, 148, 0.452),
-      rgba(44, 91, 148, 0.452)
+      rgba(51, 51, 51, 0.452),
+      rgba(51, 51, 51, 0.452)
     ),
-    url("https://images.unsplash.com/photo-1577979538850-f26500ce779f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");
+    url("https://images.unsplash.com/photo-1592773805531-cb2b948e9838?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .background-img {
@@ -102,22 +109,7 @@ export default {
   font-size: 3rem;
   position: relative;
   z-index: 1;
-
-  &::before {
-    content: "";
-    position: absolute;
-    height: 200%;
-    width: 110%;
-    background: $ocean20;
-    top: -50%;
-    left: -5%;
-    z-index: -1;
-  }
 }
-
-// .content-panel {
-//   margin-bottom: 500px;
-// }
 
 .fade-enter-active,
 .fade-leave-active {

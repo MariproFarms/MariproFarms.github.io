@@ -22,8 +22,7 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 body {
   margin: 0;
-  background: $ocean20;
-  color: #ffffff;
+  color: $slate20;
 }
 
 #app {

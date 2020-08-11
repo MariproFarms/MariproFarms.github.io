@@ -40,7 +40,7 @@ export default {
   justify-content: space-between;
   width: 100vw;
   z-index: 10;
-  padding: $spacer * 1.5;
+  padding: $spacer/2 $spacer;
 
   &__list {
     display: flex;
@@ -56,6 +56,8 @@ export default {
 }
 
 .with-background {
-  background: $ocean20;
+  background: $slate20;
+  transition: 0.6s;
+  box-shadow: 0 0 2px 0px $slate20;
 }
 </style>

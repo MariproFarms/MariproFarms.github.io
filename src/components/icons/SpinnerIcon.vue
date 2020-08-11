@@ -24,7 +24,7 @@ $circumference: (2 * 3.1415927 * 45);
 }
 circle {
   max-width: 100px;
-  stroke: $ocean20;
+  stroke: $slate20;
   fill: none;
   stroke-width: 10;
   stroke-linecap: round;

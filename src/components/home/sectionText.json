@@ -1,11 +1,17 @@
 [
 	{
 		"title": "",
-		"text": "Maripro Aquaculture is an aquaponic farm committed to bringing fresh seafood to market sustainably and increasing food security in the local community."
+		"text": "Maripro Aquaculture is an aquaponic farm committed to bringing fresh seafood to market sustainably and increasing food security in our community.",
+		"images": [
+			"https://cdn.pixabay.com/photo/2018/07/24/20/54/shrimp-3560003_1280.jpg",
+			"https://images.unsplash.com/photo-1576089073624-b5751a8f4de9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1250&q=80",
+			"https://cdn.pixabay.com/photo/2016/03/05/21/31/sea-urchins-1239013_1280.jpg"
+		]
 	},
 	{
 		"title": "The Future Of Seafood",
-		"text": "As the global demand for seafood continues to rise, production methods are shifting. Since the 1980s, aquaculture practices have increased at a faster rate than wild catch. A global increase in the demand for seafood is being faced with overfishing, growing environmental concerns and climate change, making sustainable aquaculture a necessary step forward."
+		"text": "As the global demand for seafood continues to rise, production methods are shifting. Since the 1980s, aquaculture practices have increased at a faster rate than wild catch. A global increase in the demand for seafood is being faced with overfishing, growing environmental concerns and climate change, making sustainable aquaculture a necessary step forward.",
+		"html": "<iframe src='https://ourworldindata.org/grapher/capture-and-aquaculture-production' loading='lazy' style='width: 800px; height: 600px; border: 0px none;'></iframe>"
 	},
 	{
 		"title": "Low Waste, High Impact",

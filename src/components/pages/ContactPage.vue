@@ -30,14 +30,14 @@ export default {
     <h3 class="page__title">Get In Touch</h3>
     <div class="contact">
       <span class="contact__detail">
-        <Pin class="contact__icon" fill="#8fffdd" stroke="#8fffdd" />Watha, NC
+        <Pin class="contact__icon" fill="#3ca38b" stroke="#8fffdd" />Watha, NC
       </span>
       <span class="contact__detail">
-        <Email class="contact__icon" fill="#8fffdd" />
+        <Email class="contact__icon" fill="#3ca38b" />
         <a href="mailto:Info@mariprofarms.com">Info@mariprofarms.com</a>
       </span>
       <span class="contact__detail">
-        <Instagram class="contact__icon" fill="#8fffdd" />
+        <Instagram class="contact__icon" fill="#3ca38b" />
         <a href="https://www.instagram.com/mariproaqua/" target="_blank">@mariproaqua</a>
       </span>
     </div>
@@ -46,7 +46,6 @@ export default {
 
 <style lang="scss" scoped>
 .page-wrapper {
-  background: $ocean20;
   min-height: 100vh;
   padding-top: 125px;
 }
@@ -64,6 +63,10 @@ export default {
     display: flex;
     flex-direction: column;
     margin: $spacer 0;
+
+    a {
+      color: $slate20;
+    }
   }
 
   &__icon {

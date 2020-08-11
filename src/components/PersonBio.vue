@@ -1,24 +1,41 @@
 <script>
+import LoadingSpinner from "@/components/LoadingSpinner.vue";
+
 const people = require("./bioData.json");
 export default {
   name: "PersonBio",
+  components: {
+    LoadingSpinner
+  },
   data() {
     return {
-      people
+      people,
+      isLoading: true
     };
+  },
+  mounted() {
+    const newImage = new Image();
+    newImage.src =
+      "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/48422949_10212818337833313_1526331892670922752_n.jpg?_nc_cat=111&_nc_sid=8bfeb9&_nc_ohc=b-mrEQnakMgAX9iR49K&_nc_ht=scontent-iad3-1.xx&oh=a45bf70d605940ac6950ba2c60628153&oe=5F562AF8";
+
+    newImage.onLoad = this.toggleLoading();
+  },
+  methods: {
+    toggleLoading() {
+      console.log("toggle");
+      this.isLoading = !this.isLoading;
+    }
   }
 };
 </script>
 
 <template>
   <div>
-    <div class="bio-section">
-      <div class="img-wrapper">
-        <img
-          src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/48422949_10212818337833313_1526331892670922752_n.jpg?_nc_cat=111&_nc_sid=8bfeb9&_nc_ohc=b-mrEQnakMgAX9iR49K&_nc_ht=scontent-iad3-1.xx&oh=a45bf70d605940ac6950ba2c60628153&oe=5F562AF8"
-          alt="Karen Jensen"
-        />
-      </div>
+    <div class="bio-section" v-show="!isLoading">
+      <img
+        src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/48422949_10212818337833313_1526331892670922752_n.jpg?_nc_cat=111&_nc_sid=8bfeb9&_nc_ohc=b-mrEQnakMgAX9iR49K&_nc_ht=scontent-iad3-1.xx&oh=a45bf70d605940ac6950ba2c60628153&oe=5F562AF8"
+        alt="Karen Jensen"
+      />
       <div class="bio-section__details">
         <h4>Karen Jensen</h4>
         <p class="bio-section__title">Co-founder, CEO, and Chief Scientist</p>
@@ -38,10 +55,8 @@ export default {
       </div>
     </div>
 
-    <div class="bio-section">
-      <div class="img-wrapper">
-        <img src="../assets/Matthew2.jpg" alt="Matthew Bach" />
-      </div>
+    <div class="bio-section" v-show="!isLoading">
+      <img src="../assets/Matthew2.jpg" alt="Matthew Bach" />
 
       <div class="bio-section__details">
         <h4>Matthew Bach</h4>
@@ -66,32 +81,24 @@ export default {
         </p>
       </div>
     </div>
+    <LoadingSpinner v-show="isLoading" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.img-wrapper {
-  height: 200px;
-  width: 200px;
-  overflow: hidden;
-  border-radius: 50%;
-  position: relative;
-
-  img {
-    width: 100%;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    filter: grayscale(100%);
-  }
+img {
+  max-width: 40%;
+  max-height: 100%;
+  height: inherit;
+  filter: grayscale(80%);
 }
 
 .bio-section {
-  color: #ffffff;
   display: flex;
   margin-bottom: $spacer * 3;
+  background: #ebebeb;
+  justify-content: stretch;
+  position: relative;
 
   &__details {
     flex: 1;
@@ -99,6 +106,7 @@ export default {
     margin-left: $spacer * 2;
     text-align: left;
     line-height: 1.5rem;
+    padding: $spacer * 1.5;
   }
 
   &__title {
@@ -111,15 +119,16 @@ export default {
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #8fffdd;
+    color: #3ca38b;
   }
 
   @media (max-width: 770px) {
     flex-direction: column;
 
-    .img-wrapper {
+    img {
       margin: 0 auto;
-      margin-bottom: $spacer;
+      max-height: 40%;
+      max-width: 100%;
     }
 
     h4,
