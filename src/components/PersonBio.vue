@@ -22,7 +22,6 @@ export default {
   },
   methods: {
     toggleLoading() {
-      console.log("toggle");
       this.isLoading = !this.isLoading;
     }
   }

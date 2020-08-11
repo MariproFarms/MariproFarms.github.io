@@ -1,8 +1,5 @@
 <script>
 import PersonBio from "@/components/PersonBio";
-
-// const contentSections = require("@/components/home/sectionText.json");
-
 export default {
   name: "AboutPage",
   components: {
