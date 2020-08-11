@@ -99,6 +99,7 @@ export default {
     overflow: hidden;
     border-radius: 50%;
     margin: $spacer 0;
+    filter: grayscale(40%);
   }
   img {
     height: 100%;

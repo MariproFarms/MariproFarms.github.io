@@ -90,10 +90,10 @@ export default {
   padding: $spacer;
   background: linear-gradient(
       0deg,
-      rgba(51, 51, 51, 0.452),
-      rgba(51, 51, 51, 0.452)
+      rgba(51, 51, 51, 0.247),
+      rgba(51, 51, 51, 0.247)
     ),
-    url("https://images.unsplash.com/photo-1592773805531-cb2b948e9838?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+    url("https://images.unsplash.com/photo-1506657333927-1e85394ce369?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
   background-attachment: fixed;
   background-size: cover;
 }
