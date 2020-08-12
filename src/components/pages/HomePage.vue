@@ -1,5 +1,7 @@
 <script>
-import ContentSection from "@/components/home/ContentSection.vue";
+import ContentSection1 from "@/components/home/ContentSection1.vue";
+import ContentSectionProducts from "@/components/home/ContentSectionProducts.vue";
+
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import { newScrollScene, toggleClass } from "@/helpers/scrollAnimations.js";
 
@@ -8,8 +10,9 @@ const contentSections = require("@/components/home/sectionText.json");
 export default {
   name: "HomePage",
   components: {
-    ContentSection,
     LoadingSpinner,
+    ContentSection1,
+    ContentSectionProducts,
   },
   data() {
     return {
@@ -58,21 +61,8 @@ export default {
             <h1 class="header-text">Fresh. Sustainable. Local.</h1>
           </div>
         </div>
-        <div
-          ref="scrollPanel"
-          :id="`contentBox` + index"
-          v-for="(section, index) in contentSections"
-          :key="index"
-          class="content-panel"
-        >
-          <ContentSection
-            :title="section.title"
-            :text="section.text"
-            :images="section.images"
-            :backgroundImg="section.backgroundImg"
-            :content="section"
-          />
-        </div>
+        <ContentSection1 />
+        <ContentSectionProducts />
       </div>
     </transition>
 
@@ -98,6 +88,12 @@ export default {
   background-attachment: fixed;
   background-size: cover;
   background-position: center 70%;
+
+  @media only screen and (max-width: 770px) {
+    background-attachment: scroll;
+    // background-position: center 90%;
+    background-size: auto;
+  }
 }
 
 .background-img {
