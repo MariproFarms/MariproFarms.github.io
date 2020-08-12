@@ -4,24 +4,17 @@ import Email from "@/assets/email.svg";
 import Pin from "@/assets/pin.svg";
 import Instagram from "@/assets/instagram.svg";
 
-const contentSections = require("@/components/home/sectionText.json");
-
 export default {
   name: "ContactPage",
   components: {
     Email,
     Pin,
-    Instagram
+    Instagram,
   },
 
-  data() {
-    return {
-      contentSections
-    };
-  },
   methods: {
-    newScrollScene
-  }
+    newScrollScene,
+  },
 };
 </script>
 

@@ -3,8 +3,8 @@ import NavBar from "@/components/NavBar";
 export default {
   name: "app",
   components: {
-    NavBar
-  }
+    NavBar,
+  },
 };
 </script>
 
@@ -14,6 +14,17 @@ export default {
     <main>
       <router-view></router-view>
     </main>
+    <footer>
+      <div>
+        Icons made by
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and
+        <a
+          href="https://www.flaticon.com/authors/pixel-perfect"
+          title="Pixel perfect"
+        >Pixel perfect</a> from
+        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -33,6 +44,18 @@ body {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
+}
+
+footer {
+  font-size: 10px;
+  color: $slate20;
+  background: #ebebeb;
+  padding: $spacer/2;
+  text-align: left;
+
+  a {
+    color: $slate20;
+  }
 }
 </style>

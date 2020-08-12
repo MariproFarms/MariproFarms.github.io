@@ -1,10 +1,12 @@
 <script>
 import Logo from "../assets/logo.svg";
+import Home from "@/assets/home.svg";
 
 export default {
   name: "NavBar",
   components: {
     Logo,
+    Home,
   },
   computed: {
     backgroundState() {
@@ -22,6 +24,11 @@ export default {
       <Logo width="150px" />
     </router-link>
     <ul class="nav__list">
+      <li>
+        <router-link to="/" aria-label="Home">
+          <Home class="nav__icon" stroke="#ffffff" fill="#ffffff" />
+        </router-link>
+      </li>
       <li>
         <router-link to="/about">About</router-link>
       </li>
@@ -53,6 +60,16 @@ export default {
       display: flex;
       align-items: center;
       margin-left: $spacer * 2;
+    }
+  }
+
+  &__icon {
+    height: 25px;
+    width: 25px;
+
+    &:hover {
+      fill: $seaGreen;
+      transition: 0.5s;
     }
   }
 }
