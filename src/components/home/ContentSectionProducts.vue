@@ -38,6 +38,8 @@ export default {
             </div>
             <p>{{product.name}}</p>
           </div>
+
+          <p>**NOTE: Maybe for each product, we link the image/name to a page that explains each product. Maybe include some recipes or common uses for the thing**</p>
         </div>
       </div>
     </template>

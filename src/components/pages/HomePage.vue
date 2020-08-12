@@ -1,6 +1,7 @@
 <script>
 import ContentSection1 from "@/components/home/ContentSection1.vue";
 import ContentSectionProducts from "@/components/home/ContentSectionProducts.vue";
+import ContentSectionWhyMaripro from "@/components/home/ContentSectionWhyMaripro.vue";
 
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import { newScrollScene, toggleClass } from "@/helpers/scrollAnimations.js";
@@ -13,6 +14,7 @@ export default {
     LoadingSpinner,
     ContentSection1,
     ContentSectionProducts,
+    ContentSectionWhyMaripro,
   },
   data() {
     return {
@@ -63,6 +65,7 @@ export default {
         </div>
         <ContentSection1 />
         <ContentSectionProducts />
+        <ContentSectionWhyMaripro />
       </div>
     </transition>
 
