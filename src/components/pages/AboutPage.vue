@@ -3,8 +3,8 @@ import PersonBio from "@/components/PersonBio";
 export default {
   name: "AboutPage",
   components: {
-    PersonBio
-  }
+    PersonBio,
+  },
 };
 </script>
 
@@ -21,16 +21,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.page-wrapper {
-  min-height: 100vh;
-  padding: $spacer * 3;
-  padding-top: 125px;
-
-  @media (max-width: 770px) {
-    padding: $spacer * 2;
-    padding-top: 115px;
-  }
-}
+@include pageLayout;
 
 .page-section {
   max-width: 1000px;

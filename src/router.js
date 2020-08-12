@@ -4,6 +4,7 @@ import Router from "vue-router"
 import HomePage from "@/components/pages/HomePage.vue"
 import AboutPage from "@/components/pages/AboutPage.vue"
 import ContactPage from "@/components/pages/ContactPage.vue"
+import SustainabilityPage from "@/components/pages/SustainabilityPage.vue"
 
 Vue.use(Router)
 
@@ -35,6 +36,14 @@ const router = new Router({
 				title: "MariPro | Contact"
 			},
 			component: ContactPage
+		},
+		{
+			path: "/sustainability",
+			name: "Sustainability",
+			meta: {
+				title: "MariPro | Sustainability"
+			},
+			component: SustainabilityPage
 		}
 	],
 	scrollBehavior() {
