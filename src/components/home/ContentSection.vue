@@ -1,26 +1,32 @@
 <script>
+import { revealOnScroll } from "@/helpers/scrollAnimations.js";
 export default {
   name: "ContentSection",
   props: {
     title: {
       type: String,
-      required: false
+      required: false,
     },
     text: {
       type: String,
-      required: false
+      required: false,
     },
     images: {
       type: Array,
-      required: false
+      required: false,
     },
     backgroundImg: {
       type: Object,
-      required: false
+      required: false,
     },
     content: {
       type: Object,
-      required: false
+      required: false,
+    },
+  },
+  mounted() {
+    if (this.$refs.images) {
+      revealOnScroll(this.$refs.images, this.$refs.images);
     }
   },
   computed: {
@@ -29,21 +35,21 @@ export default {
         return {
           background: `url(${this.backgroundImg.url})`,
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover"
+          backgroundSize: "cover",
         };
       } else return "";
-    }
-  }
+    },
+  },
 };
 </script>
 
 <template>
   <div class="content__wrapper" :style="inlineStyle">
-    <div class="content">
+    <div class="content" ref="content">
       <h2 v-if="title">{{ title }}</h2>
       <p>{{ text }}</p>
       <div v-if="images" class="images">
-        <div class="image-wrapper" v-for="image in images" :key="image">
+        <div ref="images" class="image-wrapper" v-for="image in images" :key="image">
           <img :src="image" />
         </div>
       </div>
@@ -100,7 +106,12 @@ export default {
     border-radius: 50%;
     margin: $spacer 0;
     position: relative;
-    filter: grayscale(40%);
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+      transition: all 2s ease-in-out;
+    }
   }
   img {
     height: 100%;

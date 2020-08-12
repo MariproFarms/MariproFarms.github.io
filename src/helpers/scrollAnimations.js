@@ -33,3 +33,15 @@ export function toggleClass(animateElement, triggerElement) {
 
 	return scene
 }
+
+export function revealOnScroll(animateElement, triggerElement) {
+	var controller = new ScrollMagic.Controller()
+
+	new ScrollMagic.Scene({
+		triggerElement: triggerElement,
+		triggerHook: 1
+	})
+		.setClassToggle(animateElement, "visible") // add class to reveal
+		.addIndicators() // add indicators (requires plugin)
+		.addTo(controller)
+}

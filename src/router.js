@@ -10,6 +10,7 @@ Vue.use(Router)
 const router = new Router({
 	mode: "history",
 	base: "/maripro",
+
 	routes: [
 		{
 			path: "/",
@@ -35,7 +36,10 @@ const router = new Router({
 			},
 			component: ContactPage
 		}
-	]
+	],
+	scrollBehavior() {
+		return { x: 0, y: 0 }
+	}
 })
 
 export default router

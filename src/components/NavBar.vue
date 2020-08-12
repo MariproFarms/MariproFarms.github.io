@@ -1,19 +1,18 @@
 <script>
 import Logo from "../assets/logo.svg";
-// import { toggleClass } from "@/helpers/scrollAnimations.js";
 
 export default {
   name: "NavBar",
   components: {
-    Logo
+    Logo,
   },
   computed: {
     backgroundState() {
       if (this.$route.name !== "Home") {
         return "with-background";
       } else return "";
-    }
-  }
+    },
+  },
 };
 </script>
 

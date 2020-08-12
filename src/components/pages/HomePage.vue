@@ -9,19 +9,19 @@ export default {
   name: "HomePage",
   components: {
     ContentSection,
-    LoadingSpinner
+    LoadingSpinner,
   },
   data() {
     return {
       contentSections,
       isLoading: true,
-      toggleClassAnimation: {}
+      toggleClassAnimation: {},
     };
   },
   methods: {
     newScrollScene,
     addScrollScenes() {
-      this.$refs.scrollPanel.forEach(panel => {
+      this.$refs.scrollPanel.forEach((panel) => {
         this.newScrollScene(panel);
       });
       this.newScrollScene(this.$refs.topPanel);
@@ -31,12 +31,12 @@ export default {
     },
     async showPage() {
       await this.toggleLoading();
-    }
+    },
   },
   async mounted() {
     const newImage = new Image();
     newImage.src =
-      "https://images.unsplash.com/photo-1506657333927-1e85394ce369?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80";
+      "https://images.unsplash.com/photo-1489880315220-8f6626c33138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80";
 
     newImage.onload = this.toggleLoading();
 
@@ -45,13 +45,13 @@ export default {
 
   beforeDestroy() {
     this.toggleClassAnimation.removeClassToggle(true);
-  }
+  },
 };
 </script>
 
 <template>
-  <transition name="fade">
-    <div>
+  <div>
+    <transition name="fade">
       <div v-show="!isLoading">
         <div ref="topPanel">
           <div class="above-fold">
@@ -74,9 +74,10 @@ export default {
           />
         </div>
       </div>
-      <LoadingSpinner v-show="isLoading" />
-    </div>
-  </transition>
+    </transition>
+
+    <LoadingSpinner v-show="isLoading" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -93,9 +94,10 @@ export default {
       rgba(51, 51, 51, 0.247),
       rgba(51, 51, 51, 0.247)
     ),
-    url("https://images.unsplash.com/photo-1506657333927-1e85394ce369?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+    url("https://images.unsplash.com/photo-1489880315220-8f6626c33138?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80");
   background-attachment: fixed;
   background-size: cover;
+  background-position: center 70%;
 }
 
 .background-img {
@@ -113,7 +115,7 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.8xs;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
