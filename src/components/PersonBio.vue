@@ -5,12 +5,12 @@ const people = require("./bioData.json");
 export default {
   name: "PersonBio",
   components: {
-    LoadingSpinner
+    LoadingSpinner,
   },
   data() {
     return {
       people,
-      isLoading: true
+      isLoading: true,
     };
   },
   mounted() {
@@ -23,8 +23,8 @@ export default {
   methods: {
     toggleLoading() {
       this.isLoading = !this.isLoading;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -93,8 +93,8 @@ export default {
   display: flex;
   margin-bottom: $spacer * 3;
   background: #ebebeb;
-  justify-content: stretch;
   position: relative;
+  padding: $spacer * 1.5;
 
   &__details {
     flex: 1;
@@ -102,7 +102,6 @@ export default {
     margin-left: $spacer * 2;
     text-align: left;
     line-height: 1.5rem;
-    padding: $spacer * 1.5;
   }
 
   &__title {
@@ -119,22 +118,32 @@ export default {
   }
 
   &__img {
-    width: 40%;
+    // width: 40%;
+    // height: auto;
     position: relative;
+    flex: 1;
 
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
       filter: grayscale(80%);
     }
   }
   @media (max-width: 770px) {
     flex-direction: column;
+    padding: 0;
 
-    img {
-      margin: 0 auto;
-      max-height: 40%;
-      max-width: 100%;
+    &__img {
+      width: 100%;
+      height: auto;
+      position: relative;
+      margin-bottom: $spacer;
+
+      img {
+        width: 100%;
+        height: auto;
+        filter: grayscale(80%);
+      }
     }
 
     h4,
@@ -144,6 +153,8 @@ export default {
 
     &__details {
       margin-left: 0;
+      padding: $spacer * 1.5;
+      padding-top: 0;
     }
   }
 }
